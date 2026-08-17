@@ -5,7 +5,7 @@ backend:
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
-media_folder: "uploads"
+media_folder: "slamber-site/uploads"
 public_folder: "/uploads"
 
 locale: "en"
@@ -16,7 +16,7 @@ collections:
     files:
       - name: "site"
         label: "Sosial Media & Donasi"
-        file: "content/site.json"
+        file: "slamber-site/content/site.json"
         fields:
           - label: "Sosial Media"
             name: "social"
