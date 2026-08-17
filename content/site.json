@@ -1,5 +1,17 @@
 {
   "donasi": {
     "account_name": "0381032395"
-  }
+  },
+  "aksi": [
+    {
+      "title": "berish",
+      "date": "10 agustus 2026",
+      "location": "sukabumi",
+      "categories": [
+        "social"
+      ],
+      "description": "kitu we",
+      "image": "/uploads/img-20200410-wa0053.jpg"
+    }
+  ]
 }
