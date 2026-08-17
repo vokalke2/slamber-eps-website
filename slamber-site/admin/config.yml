@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "en"
+
+collections:
+  - name: "pengaturan"
+    label: "Pengaturan Situs"
+    files:
+      - name: "site"
+        label: "Sosial Media & Donasi"
+        file: "content/site.json"
+        fields:
+          - label: "Sosial Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Link Instagram", name: "instagram", widget: "string", required: false, hint: "Contoh: https://instagram.com/slamber.eps" }
+              - { label: "Link TikTok", name: "tiktok", widget: "string", required: false }
+              - { label: "Link YouTube", name: "youtube", widget: "string", required: false }
+              - { label: "Link WhatsApp (komunitas)", name: "whatsapp", widget: "string", required: false, hint: "Contoh: https://wa.me/62812xxxxxxx" }
+          - label: "Donasi"
+            name: "donasi"
+            widget: "object"
+            fields:
+              - { label: "Nama Rekening", name: "account_name", widget: "string", required: false }
+              - { label: "Nama Bank", name: "bank_name", widget: "string", required: false }
+              - { label: "Nomor Rekening", name: "account_number", widget: "string", required: false }
+              - { label: "Foto QRIS", name: "qris_image", widget: "image", required: false }
+              - { label: "Link WhatsApp Konfirmasi Donasi", name: "whatsapp", widget: "string", required: false, hint: "Contoh: https://wa.me/62812xxxxxxx" }
+          - label: "Rekap Aksi"
+            name: "aksi"
+            widget: "list"
+            label_singular: "Aksi"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { label: "Judul Kegiatan", name: "title", widget: "string" }
+              - { label: "Tanggal", name: "date", widget: "string", hint: "Contoh: Agustus 2026" }
+              - { label: "Lokasi", name: "location", widget: "string", required: false }
+              - label: "Kategori"
+                name: "categories"
+                widget: "select"
+                multiple: true
+                options:
+                  - { label: "Environment", value: "environment" }
+                  - { label: "Social", value: "social" }
+                  - { label: "Education", value: "education" }
+                  - { label: "Spiritual", value: "spiritual" }
+                  - { label: "Community", value: "community" }
+              - { label: "Deskripsi Singkat", name: "description", widget: "text" }
+              - { label: "Foto Kegiatan", name: "image", widget: "image", required: false }
+              - { label: "Link Video (opsional)", name: "video_url", widget: "string", required: false, hint: "Link YouTube/Instagram/TikTok video kegiatan ini" }
+              - { label: "Angka/Info 1", name: "stat1", widget: "string", required: false, hint: "Contoh: 32 Peserta" }
+              - { label: "Angka/Info 2", name: "stat2", widget: "string", required: false, hint: "Contoh: Ruang Publik Tertata" }

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLAMBER.EPS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0d0d0d;
+    --charcoal:#161616;
+    --white:#f7f6f2;
+    --grey:#8a8a86;
+    --line: rgba(247,246,242,0.14);
+    --radius: 2px;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:'Archivo', sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+  ::selection{ background:var(--white); color:var(--black); }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  button{ font-family:inherit; cursor:pointer; }
+  :focus-visible{ outline:2px solid var(--white); outline-offset:3px; }
+
+  .wrap{ max-width:1200px; margin:0 auto; padding:0 clamp(20px,5vw,64px); }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--grey); display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:18px; height:1px; background:var(--grey); display:inline-block; }
+  h1,h2,h3{ font-family:'Archivo Black', sans-serif; text-transform:uppercase; line-height:0.98; letter-spacing:-0.01em; }
+  .section{ padding:clamp(72px,10vw,140px) 0; position:relative; }
+  .section-divider{ border-top:1px solid var(--line); }
+  .fade{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .fade.in{ opacity:1; transform:translateY(0); }
+  .fade-d1{ transition-delay:.08s; } .fade-d2{ transition-delay:.16s; } .fade-d3{ transition-delay:.24s; }
+
+  .grain{ position:fixed; inset:0; pointer-events:none; z-index:999; opacity:.045; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(13,13,13,0.75); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:18px clamp(20px,5vw,64px); }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:'Space Mono',monospace; font-weight:700; letter-spacing:.02em; font-size:15px; }
+  .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--white); }
+  nav.links{ display:flex; gap:32px; }
+  nav.links a{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); font-weight:600; position:relative; padding:4px 0; transition:color .25s; }
+  nav.links a:hover{ color:var(--white); }
+  nav.links a::after{ content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--white); transition:width .25s; }
+  nav.links a:hover::after{ width:100%; }
+  .cta-btn{
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    background:var(--white); color:var(--black); padding:12px 22px; border-radius:var(--radius);
+    border:1px solid var(--white); transition:all .25s;
+  }
+  .cta-btn:hover{ background:transparent; color:var(--white); }
+  .cta-ghost{
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:700;
+    background:transparent; color:var(--white); padding:12px 22px; border-radius:var(--radius);
+    border:1px solid var(--line); transition:all .25s;
+  }
+  .cta-ghost:hover{ border-color:var(--white); }
+  .menu-toggle{ display:none; background:none; border:none; color:var(--white); font-size:22px; }
+
+  /* HERO */
+  .hero{
+    min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; padding-top:120px;
+    background:
+      repeating-linear-gradient(115deg, rgba(247,246,242,0.02) 0px, rgba(247,246,242,0.02) 1px, transparent 1px, transparent 90px),
+      linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 60%, #090909 100%);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero h1{
+    position:relative; z-index:2;
+    font-size:clamp(36px, 6.6vw, 84px);
+    max-width:17ch;
+    color:var(--white);
+  }
+  .hero-sub{
+    position:relative; z-index:2; max-width:520px; font-size:17px; line-height:1.65; color:var(--grey);
+    margin-top:26px; font-weight:400;
+  }
+  .hero-actions{ position:relative; z-index:2; display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; }
+  .hero-foot{
+    position:relative; z-index:2; display:flex; justify-content:space-between; align-items:flex-end;
+    margin-top:64px; padding:22px 0; border-top:1px solid var(--line); font-family:'Space Mono',monospace; font-size:12px; color:var(--grey); letter-spacing:.06em;
+    flex-wrap:wrap; gap:12px;
+  }
+  .hero-foot span{ color:var(--white); }
+
+  /* PLACEHOLDER PLATE */
+  .plate{
+    position:relative; overflow:hidden; border-radius:var(--radius);
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.05), transparent 55%),
+      repeating-conic-gradient(from 15deg, #1a1a1a 0deg 90deg, #131313 90deg 180deg);
+    background-size:100%, 16px 16px;
+    border:1px solid var(--line);
+    display:flex; align-items:flex-end; padding:16px;
+  }
+  .plate-tag{
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--grey); border:1px solid var(--line); padding:5px 9px; border-radius:20px; background:rgba(13,13,13,.6);
+  }
+
+  /* TIMELINE */
+  .timeline{ position:relative; margin-top:70px; }
+  .timeline::before{ content:''; position:absolute; left:12px; top:0; bottom:0; width:1px; background:var(--line); }
+  .tl-item{ position:relative; padding:0 0 56px 48px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-dot{ position:absolute; left:6px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--black); border:2px solid var(--line); }
+  .tl-item.is-key .tl-dot{ border-color:var(--white); background:var(--white); }
+  .tl-year{ font-family:'Space Mono',monospace; color:var(--grey); font-size:13px; letter-spacing:.1em; }
+  .tl-item h3{ font-size:clamp(20px,2.6vw,28px); margin-top:6px; color:var(--white); }
+  .tl-item p{ color:var(--grey); font-size:15px; margin-top:8px; max-width:56ch; line-height:1.6; }
+
+  /* VISI MISI */
+  .vm-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px; }
+  .vm-card{ border:1px solid var(--line); padding:32px; border-radius:var(--radius); background:var(--charcoal); }
+  .vm-card p{ font-size:19px; line-height:1.6; color:var(--white); }
+  .misi-list{ list-style:none; counter-reset:misi; }
+  .misi-list li{ counter-increment:misi; display:flex; gap:18px; padding:16px 0; border-bottom:1px solid var(--line); font-size:15.5px; color:var(--grey); }
+  .misi-list li::before{ content:counter(misi,decimal-leading-zero); font-family:'Space Mono',monospace; color:var(--white); font-size:13px; flex-shrink:0; padding-top:2px; }
+
+  /* REKAP AKSI */
+  .filters{ display:flex; gap:10px; flex-wrap:wrap; margin:36px 0 40px; }
+  .filter-btn{
+    background:transparent; border:1px solid var(--line); color:var(--grey); padding:9px 16px; border-radius:20px;
+    font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; transition:all .25s;
+  }
+  .filter-btn.active, .filter-btn:hover{ border-color:var(--white); color:var(--white); }
+  .aksi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .aksi-card{ display:block; }
+  .aksi-card .plate{ aspect-ratio:4/3; }
+  .aksi-meta{ display:flex; justify-content:space-between; font-family:'Space Mono',monospace; font-size:11px; color:var(--grey); margin-top:14px; letter-spacing:.05em; }
+  .aksi-card h3{ font-family:'Archivo',sans-serif; text-transform:none; font-weight:700; font-size:19px; margin-top:8px; letter-spacing:-0.01em; color:var(--white); }
+  .aksi-card p{ color:var(--grey); font-size:14px; margin-top:6px; line-height:1.55; }
+  .aksi-stats{ display:flex; gap:16px; margin-top:12px; font-family:'Space Mono',monospace; font-size:11px; color:var(--white); }
+
+  /* DONASI */
+  .donasi-panel{ display:grid; grid-template-columns:1.1fr 0.9fr; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:48px; }
+  .donasi-left{ padding:48px; background:var(--charcoal); position:relative; border-right:1px solid var(--line); }
+  .donasi-left h2{ font-size:clamp(24px,3.2vw,36px); color:var(--white); }
+  .donasi-left p{ color:var(--grey); margin-top:18px; font-size:16px; line-height:1.65; max-width:44ch; }
+  .donasi-left .cta-btn{ margin-top:30px; }
+  .donasi-right{ padding:48px; background:var(--black); display:flex; flex-direction:column; gap:20px; }
+  .bank-row{ border-bottom:1px solid var(--line); padding-bottom:14px; }
+  .bank-row .label{ font-family:'Space Mono',monospace; font-size:11px; color:var(--grey); text-transform:uppercase; letter-spacing:.08em; }
+  .bank-row .value{ font-weight:700; font-size:15px; color:var(--white); margin-top:4px; }
+  .qris-box{ display:flex; gap:16px; align-items:center; margin-top:6px; }
+  .qris-plate{ width:90px; height:90px; flex-shrink:0; border:1px dashed var(--line); border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; color:var(--grey); text-align:center; padding:6px; }
+  .donasi-note{ font-size:12px; color:var(--grey); margin-top:auto; font-style:italic; }
+  .thanks-note{ margin-top:20px; font-family:'Space Mono',monospace; font-size:12px; color:var(--grey); border-top:1px solid var(--line); padding-top:16px; }
+
+  /* TRANSPARANSI (kept minimal, folded into donasi) */
+  .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px; }
+  .stat-cell{ background:var(--black); padding:30px 22px; }
+  .stat-cell .num{ font-family:'Archivo Black',sans-serif; font-size:clamp(24px,3vw,36px); color:var(--white); }
+  .stat-cell .lbl{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); margin-top:10px; }
+
+  /* FORM */
+  .form-panel{ border:1px solid var(--line); border-radius:var(--radius); padding:44px; background:var(--charcoal); margin-top:48px; }
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:28px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column:1/-1; }
+  .field label{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); }
+  .field input, .field select, .field textarea{
+    background:var(--black); border:1px solid var(--line); color:var(--white); padding:13px 14px; border-radius:var(--radius);
+    font-family:'Archivo',sans-serif; font-size:14.5px; transition:border-color .25s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--white); outline:none; }
+  .form-submit{ margin-top:30px; }
+
+  /* COLLAB */
+  .collab-flex{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; flex-wrap:wrap; }
+  .collab-flex h2{ font-size:clamp(28px,4.6vw,52px); max-width:12ch; }
+
+  /* FOOTER */
+  footer{ border-top:1px solid var(--line); padding:64px 0 30px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; }
+  .footer-brand .logo{ margin-bottom:16px; }
+  .footer-brand p{ color:var(--grey); font-size:14.5px; max-width:34ch; line-height:1.6; }
+  .footer-col h4{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--grey); margin-bottom:16px; }
+  .footer-col a{ display:block; font-size:14.5px; color:var(--grey); padding:6px 0; transition:color .2s; }
+  .footer-col a:hover{ color:var(--white); }
+  .footer-bottom{ display:flex; justify-content:space-between; margin-top:60px; padding-top:22px; border-top:1px solid var(--line);
+    font-family:'Space Mono',monospace; font-size:11.5px; color:var(--grey); flex-wrap:wrap; gap:10px; }
+
+  /* RESPONSIVE */
+  @media (max-width:920px){
+    nav.links{ display:none; }
+    .menu-toggle{ display:block; }
+    .vm-grid, .donasi-panel{ grid-template-columns:1fr; }
+    .aksi-grid{ grid-template-columns:repeat(2,1fr); }
+    .stats-grid{ grid-template-columns:repeat(2,1fr); }
+    .form-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:600px){
+    .aksi-grid, .stats-grid{ grid-template-columns:1fr; }
+    .hero-foot{ flex-direction:column; align-items:flex-start; }
+    .footer-grid{ grid-template-columns:1fr; }
+    .collab-flex{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span> SLAMBER.EPS</div>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#sejarah">Sejarah</a>
+      <a href="#visimisi">Visi &amp; Misi</a>
+      <a href="#aksi">Rekap Aksi</a>
+      <a href="#donasi">Donasi</a>
+      <a href="#kolaborasi">Kolaborasi</a>
+      <a href="#gabung">Gabung</a>
+    </nav>
+    <a href="#gabung" class="cta-btn" style="display:inline-block;">Gabung Bersama Kami</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1>BUKAN SEKADAR BERKUMPUL.<br>KAMI MEMILIH UNTUK BERGERAK.</h1>
+    <p class="hero-sub">Slamber adalah komunitas yang tumbuh dari kebersamaan, bergerak melalui aksi, dan hadir untuk memberi manfaat bagi lingkungan, sesama, dan diri sendiri.</p>
+    <div class="hero-actions">
+      <a href="#aksi" class="cta-btn">Lihat Rekap Aksi</a>
+      <a href="#donasi" class="cta-ghost">Dukung Slamber</a>
+    </div>
+    <div class="hero-foot">
+      <div>SATUKAN LANGKAH MENUJU BERSAMA — <span>BERSAMA SELAMANYA</span></div>
+      <div>#SatukanLangkah #BersamaSelamanya</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEJARAH -->
+<section class="section section-divider" id="sejarah">
+  <div class="wrap">
+    <div class="eyebrow fade">Sejarah</div>
+    <h2 class="fade fade-d1" style="font-size:clamp(28px,4.4vw,48px); margin-top:16px; max-width:16ch;">Dari kebersamaan menjadi gerakan.</h2>
+    <div class="timeline fade fade-d2">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Awal</div>
+        <h3>Terbentuknya Slamber</h3>
+        <p>Bermula dari kebersamaan sekelompok anak muda yang ingin ruang untuk berbagi, membantu sesama, dan bergerak bersama.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Bergerak</div>
+        <h3>Aksi pertama, langkah pertama</h3>
+        <p>Slamber mulai menjalankan berbagai kegiatan dan aksi nyata di lingkungan sekitar.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Bertumbuh</div>
+        <h3>Lebih banyak anggota, lebih banyak cerita</h3>
+        <p>Semakin banyak anggota, kegiatan, dan kolaborasi yang lahir dari semangat yang sama.</p>
+      </div>
+      <div class="tl-item is-key">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Hari Ini</div>
+        <h3>Melanjutkan langkah</h3>
+        <p>Generasi baru bersama anggota lama terus menjaga dan meneruskan Slamber melalui aksi nyata.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Masa Depan</div>
+        <h3>Lebih besar, lebih bermanfaat</h3>
+        <p>Slamber terus berkembang menjadi komunitas yang memberikan dampak lebih luas bagi lingkungan, sesama, dan diri sendiri.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section class="section section-divider" id="visimisi">
+  <div class="wrap">
+    <div class="eyebrow fade">Visi &amp; Misi</div>
+    <div class="vm-grid fade fade-d1" style="margin-top:32px;">
+      <div class="vm-card">
+        <div class="eyebrow" style="margin-bottom:16px;">Visi</div>
+        <p>Menjadi komunitas yang membentuk generasi muda yang peduli, bertakwa, bertumbuh, dan aktif memberikan manfaat bagi lingkungan serta sesama.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">Misi</div>
+        <ol class="misi-list">
+          <li>Membangun budaya kepedulian terhadap lingkungan.</li>
+          <li>Menjalankan kegiatan sosial yang memberikan manfaat nyata.</li>
+          <li>Membentuk anggota yang memiliki akhlak dan nilai spiritual.</li>
+          <li>Mendorong pengembangan diri setiap anggota.</li>
+          <li>Membangun solidaritas dan persaudaraan.</li>
+          <li>Mengajak generasi muda berkontribusi melalui aksi nyata.</li>
+          <li>Membuka ruang kolaborasi dengan masyarakat, organisasi, dan komunitas lain.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REKAP AKSI -->
+<section class="section section-divider" id="aksi">
+  <div class="wrap">
+    <div class="eyebrow fade">Portofolio Kegiatan</div>
+    <h2 class="fade fade-d1" style="font-size:clamp(28px,4.4vw,48px); margin-top:16px;">Rekap Aksi</h2>
+    <p class="fade fade-d1" style="color:var(--grey); margin-top:12px; font-size:16px;">Bukan sekadar rencana. Kami turun dan melakukannya.</p>
+
+    <div class="filters fade fade-d2">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="environment">Environment</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="education">Education</button>
+      <button class="filter-btn" data-filter="spiritual">Spiritual</button>
+      <button class="filter-btn" data-filter="community">Community</button>
+    </div>
+
+    <div class="aksi-grid fade fade-d3" id="aksiGrid">
+      <p id="aksiEmpty" style="color:var(--grey); font-size:14px;">Memuat aksi terbaru…</p>
+    </div>
+  </div>
+</section>
+
+<!-- DONASI -->
+<section class="section section-divider" id="donasi">
+  <div class="wrap">
+    <div class="eyebrow fade">Dukung Kami</div>
+    <h2 class="fade fade-d1" style="font-size:clamp(28px,4.4vw,48px); margin-top:16px; max-width:16ch;">Kebaikanmu bisa menjadi sebuah aksi.</h2>
+    <div class="donasi-panel fade fade-d2">
+      <div class="donasi-left">
+        <div class="eyebrow" style="margin-bottom:18px;">Dukung Aksi Slamber</div>
+        <h2>Setiap aksi butuh tenaga, waktu, dan sumber daya.</h2>
+        <p>Jika kamu belum bisa turun langsung bersama kami, kamu tetap dapat mengambil bagian dengan mendukung kegiatan Slamber.</p>
+        <a href="#" id="donasiWaBtn" class="cta-btn" target="_blank" rel="noopener">Donasi Sekarang</a>
+        <div class="thanks-note">"Terima kasih telah menjadi bagian dari kebaikan yang sedang kami perjuangkan."</div>
+      </div>
+      <div class="donasi-right">
+        <div class="bank-row"><div class="label">Nama Rekening</div><div class="value" id="donasiAccName">[Nama Rekening]</div></div>
+        <div class="bank-row"><div class="label">Bank</div><div class="value" id="donasiBankName">[Nama Bank]</div></div>
+        <div class="bank-row"><div class="label">Nomor Rekening</div><div class="value" id="donasiAccNumber">[Nomor Rekening]</div></div>
+        <div class="qris-box">
+          <div class="qris-plate" id="qrisPlate">QRIS<br>placeholder</div>
+          <div><div class="label" style="font-family:'Space Mono',monospace; font-size:11px; color:var(--grey); text-transform:uppercase;">Scan &amp; Donate</div><div style="font-size:13px; color:var(--grey); margin-top:6px;" id="qrisNote">Kode QRIS resmi akan ditambahkan setelah data tersedia.</div></div>
+        </div>
+        <div class="donasi-note">Data rekening &amp; QRIS di atas otomatis mengikuti data terbaru dari panel admin.</div>
+      </div>
+    </div>
+
+    <div class="eyebrow fade" style="margin-top:70px;">Transparansi</div>
+    <div class="stats-grid fade fade-d1">
+      <div class="stat-cell"><div class="num">Rp0</div><div class="lbl">Total Donasi</div></div>
+      <div class="stat-cell"><div class="num">Rp0</div><div class="lbl">Donasi Digunakan</div></div>
+      <div class="stat-cell"><div class="num">Rp0</div><div class="lbl">Saldo Kegiatan</div></div>
+      <div class="stat-cell"><div class="num">0</div><div class="lbl">Jumlah Kegiatan</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KOLABORASI -->
+<section class="section section-divider" id="kolaborasi">
+  <div class="wrap">
+    <div class="collab-flex fade">
+      <h2>Let's create impact together.</h2>
+      <p style="color:var(--grey); font-size:16px; max-width:44ch; line-height:1.65;">Jika kamu memiliki ide, sumber daya, jaringan, atau semangat yang sama, mari ciptakan sesuatu yang memiliki dampak.</p>
+    </div>
+    <form class="form-panel fade fade-d1" onsubmit="return false;">
+      <div class="eyebrow" style="margin-bottom:4px;">Ajukan Kolaborasi</div>
+      <div class="form-grid">
+        <div class="field"><label for="c-nama">Nama / Organisasi</label><input id="c-nama" type="text" placeholder="Nama kamu atau organisasi"></div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" placeholder="nama@email.com"></div>
+        <div class="field"><label for="c-wa">Nomor WhatsApp</label><input id="c-wa" type="tel" placeholder="08xx-xxxx-xxxx"></div>
+        <div class="field">
+          <label for="c-jenis">Jenis Kolaborasi</label>
+          <select id="c-jenis">
+            <option>Sponsorship</option>
+            <option>Program Bersama</option>
+            <option>Donasi Korporat</option>
+            <option>Media Partner</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="field full"><label for="c-pesan">Pesan</label><textarea id="c-pesan" rows="4" placeholder="Ceritakan idemu..."></textarea></div>
+      </div>
+      <button class="cta-btn form-submit" type="submit">Ajukan Kolaborasi</button>
+    </form>
+  </div>
+</section>
+
+<!-- GABUNG -->
+<section class="section section-divider" id="gabung">
+  <div class="wrap">
+    <div class="eyebrow fade">Volunteer</div>
+    <h2 class="fade fade-d1" style="font-size:clamp(28px,5vw,52px); margin-top:16px; max-width:18ch;">Kamu tidak harus menunggu menjadi hebat untuk berbuat baik.</h2>
+    <p class="fade fade-d1" style="color:var(--grey); margin-top:14px; font-size:16px;">Mulai dari hal kecil. Mulai dari lingkunganmu. Mulai dari hari ini.</p>
+
+    <form class="form-panel fade fade-d2" onsubmit="return false;">
+      <div class="eyebrow" style="margin-bottom:4px;">Gabung Menjadi Anggota</div>
+      <div class="form-grid">
+        <div class="field"><label for="v-nama">Nama</label><input id="v-nama" type="text" placeholder="Nama lengkap" required></div>
+        <div class="field"><label for="v-wa">Nomor WhatsApp</label><input id="v-wa" type="tel" placeholder="08xx-xxxx-xxxx" required></div>
+        <div class="field"><label for="v-email">Email</label><input id="v-email" type="email" placeholder="nama@email.com" required></div>
+        <div class="field"><label for="v-domisili">Domisili</label><input id="v-domisili" type="text" placeholder="Kota / kecamatan"></div>
+        <div class="field"><label for="v-ig">Instagram</label><input id="v-ig" type="text" placeholder="@username"></div>
+        <div class="field full"><label for="v-alasan">Alasan Ingin Bergabung</label><textarea id="v-alasan" rows="4" placeholder="Ceritakan alasanmu..."></textarea></div>
+      </div>
+      <button class="cta-btn form-submit" type="submit">Gabung Menjadi Anggota</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="dot"></span> SLAMBER.EPS</div>
+        <p>Bertumbuh bersama. Bergerak bersama. Memberi manfaat bersama.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <a href="#sejarah">Sejarah</a>
+        <a href="#visimisi">Visi &amp; Misi</a>
+        <a href="#aksi">Rekap Aksi</a>
+        <a href="#donasi">Donasi</a>
+        <a href="#kolaborasi">Kolaborasi</a>
+        <a href="#gabung">Gabung</a>
+      </div>
+      <div class="footer-col">
+        <h4>Terhubung</h4>
+        <a href="#" id="linkInstagram" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" id="linkTiktok" target="_blank" rel="noopener">TikTok</a>
+        <a href="#" id="linkYoutube" target="_blank" rel="noopener">YouTube</a>
+        <a href="#" id="linkWhatsapp" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Slamber.eps. All Rights Reserved.</span>
+      <span>Satukan Langkah Menuju Bersama — Bersama Selamanya.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
+  },{ threshold:0.15 });
+  document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('#aksiGrid .aksi-card').forEach(card=>{
+        const cats = card.dataset.cat;
+        card.style.display = (f==='all' || cats.includes(f)) ? '' : 'none';
+      });
+    });
+  });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.querySelector('nav.links');
+  menuToggle.addEventListener('click', ()=>{
+    const showing = navLinks.style.display === 'flex';
+    navLinks.style.cssText = showing ? '' : 'display:flex; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:rgba(13,13,13,0.98); padding:24px; gap:20px; border-bottom:1px solid var(--line);';
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{ if(window.innerWidth<=920){ navLinks.style.display='none'; } }));
+
+  // ---- Dynamic content from content/site.json (edited via /admin panel) ----
+  const CATEGORY_LABEL = {
+    environment:'Environment', social:'Social', education:'Education',
+    spiritual:'Spiritual', community:'Community'
+  };
+
+  function setLink(id, url){
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(url){ el.href = url; el.style.opacity = 1; }
+    else { el.href = '#'; el.style.opacity = .4; el.style.pointerEvents = 'none'; }
+  }
+
+  function renderAksi(list){
+    const grid = document.getElementById('aksiGrid');
+    if(!list || !list.length){
+      grid.innerHTML = '<p style="color:var(--grey); font-size:14px;">Belum ada aksi yang ditambahkan. Tambahkan lewat panel admin di /admin.</p>';
+      return;
+    }
+    grid.innerHTML = list.map(item=>{
+      const cats = (item.categories || []).join(' ');
+      const catLabels = (item.categories || []).map(c=>CATEGORY_LABEL[c] || c).join(' · ');
+      const img = item.image
+        ? `<img src="${item.image}" alt="${item.title || ''}" style="width:100%;height:100%;object-fit:cover;">`
+        : `<span class="plate-tag">Dok. Kegiatan</span>`;
+      const videoLine = item.video_url
+        ? `<a href="${item.video_url}" target="_blank" rel="noopener" class="link-arrow" style="margin-top:10px; font-size:11px;">▶ Tonton Video</a>`
+        : '';
+      return `
+        <a href="${item.video_url || '#'}" target="${item.video_url ? '_blank' : '_self'}" rel="noopener" class="aksi-card" data-cat="${cats}">
+          <div class="plate" style="aspect-ratio:4/3; padding:${item.image ? '0' : '16px'};">${img}</div>
+          <div class="aksi-meta"><span>${item.location || ''}</span><span>${item.date || ''}</span></div>
+          <h3>${item.title || ''}</h3>
+          <p>${item.description || ''}</p>
+          <div class="aksi-stats"><span>${item.stat1 || ''}</span><span>${item.stat2 || ''}</span></div>
+          ${videoLine}
+        </a>`;
+    }).join('');
+  }
+
+  function renderDonasi(d){
+    if(!d) return;
+    document.getElementById('donasiAccName').textContent = d.account_name || '[Nama Rekening]';
+    document.getElementById('donasiBankName').textContent = d.bank_name || '[Nama Bank]';
+    document.getElementById('donasiAccNumber').textContent = d.account_number || '[Nomor Rekening]';
+    const qrisPlate = document.getElementById('qrisPlate');
+    if(d.qris_image){
+      qrisPlate.innerHTML = `<img src="${d.qris_image}" alt="QRIS Slamber.eps" style="width:100%;height:100%;object-fit:cover;">`;
+      qrisPlate.style.border = '1px solid var(--line)';
+      document.getElementById('qrisNote').textContent = 'Scan kode di samping lewat aplikasi e-wallet atau m-banking.';
+    }
+    const waBtn = document.getElementById('donasiWaBtn');
+    if(d.whatsapp){ waBtn.href = d.whatsapp; }
+  }
+
+  fetch('content/site.json')
+    .then(res => res.json())
+    .then(data => {
+      setLink('linkInstagram', data.social && data.social.instagram);
+      setLink('linkTiktok', data.social && data.social.tiktok);
+      setLink('linkYoutube', data.social && data.social.youtube);
+      setLink('linkWhatsapp', data.social && data.social.whatsapp);
+      renderDonasi(data.donasi);
+      renderAksi(data.aksi);
+    })
+    .catch(() => {
+      document.getElementById('aksiGrid').innerHTML =
+        '<p style="color:var(--grey); font-size:14px;">Konten belum bisa dimuat. Pastikan situs ini dibuka lewat hosting (bukan dibuka langsung dari file), lalu cek kembali.</p>';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "social": {
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "whatsapp": ""
+  },
+  "donasi": {
+    "account_name": "[Nama Rekening]",
+    "bank_name": "[Nama Bank]",
+    "account_number": "[Nomor Rekening]",
+    "qris_image": "",
+    "whatsapp": ""
+  },
+  "aksi": [
+    {
+      "title": "PDS — Pendidikan Dasar Slamber",
+      "date": "2026",
+      "location": "Sekolah Mitra",
+      "categories": ["education", "social"],
+      "description": "Aksi sosial dan lingkungan yang mengajarkan anggota turun langsung, bekerja sama, dan memberi manfaat bagi ruang publik.",
+      "image": "",
+      "video_url": "",
+      "stat1": "32 Peserta",
+      "stat2": "Ruang Publik Tertata"
+    },
+    {
+      "title": "Slamber Care — Penataan Tanaman",
+      "date": "Agu 2026",
+      "location": "Area Sekolah",
+      "categories": ["environment"],
+      "description": "Perbaikan dan penataan tanaman hias di sekitar sekolah untuk merawat lingkungan dan membangun kekompakan.",
+      "image": "",
+      "video_url": "",
+      "stat1": "Before–After",
+      "stat2": "Dokumentasi"
+    },
+    {
+      "title": "Slamber Share — Aksi Berbagi",
+      "date": "Sep 2026",
+      "location": "Panti & Dhuafa",
+      "categories": ["social"],
+      "description": "Santunan yatim/dhuafa dan aksi berbagi untuk menebar kepedulian sosial.",
+      "image": "",
+      "video_url": "",
+      "stat1": "Penerima Manfaat",
+      "stat2": "Laporan"
+    },
+    {
+      "title": "Slamber Grow — Diklat & Kaderisasi",
+      "date": "Okt–Nov 2026",
+      "location": "Internal",
+      "categories": ["community", "education"],
+      "description": "Teamwork, leadership, manajemen kegiatan sosial, dan simulasi project untuk generasi penerus.",
+      "image": "",
+      "video_url": "",
+      "stat1": "Kader Baru",
+      "stat2": "Simulasi Project"
+    },
+    {
+      "title": "Kajian & Kebersamaan",
+      "date": "Berkala",
+      "location": "Sekretariat",
+      "categories": ["spiritual", "community"],
+      "description": "Ruang berkumpul untuk mempererat nilai spiritual, akhlak, dan rasa syukur antaranggota.",
+      "image": "",
+      "video_url": "",
+      "stat1": "Rutin",
+      "stat2": "Semua Anggota"
+    },
+    {
+      "title": "Anniversary Slamber.eps",
+      "date": "Des 2026",
+      "location": "Venue Utama",
+      "categories": ["community"],
+      "description": "Puncak perjalanan tahun ini: menampilkan sejarah, mengapresiasi anggota, dan menyampaikan arah ke depan.",
+      "image": "",
+      "video_url": "",
+      "stat1": "Seluruh Komunitas",
+      "stat2": "Perayaan"
+    }
+  ]
+}
