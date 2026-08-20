@@ -3,29 +3,30 @@
     "instagram": "https://www.instagram.com/slamber.eps?igsh=MXV0MGg2bWxmZGF1eQ%3D%3D&utm_source=qr",
     "tiktok": "",
     "youtube": "",
-    "whatsapp": ""
+    "whatsapp": "https://wa.me/6285872074135"
   },
   "donasi": {
     "account_name": "Muhamad Rizki Akbar",
     "bank_name": "BCA",
     "account_number": "0381032395",
     "qris_image": "",
-    "whatsapp": ""
+    "whatsapp": "https://wa.me/6285872074135"
   },
   "aksi": [
     {
       "video_url": "",
-      "date": "2026",
+      "date": "2020",
       "location": "Kota Sukabumi",
-      "title": "PDS — Pendidikan Dasar Slamber",
-      "image": "/uploads/img-20200408-wa0011.jpg",
+      "title": "Slamber Peduli — Berbagi di Tengah Pandemi",
+      "image": "",
       "categories": [
         "education",
-        "social"
+        "social",
+        "community"
       ],
-      "description": "Aksi sosial dan lingkungan yang mengajarkan anggota turun langsung, bekerja sama, dan memberi manfaat bagi ruang publik.",
-      "stat1": "32 Peserta",
-      "stat2": "Ruang Publik Tertata"
+      "description": "Saat pandemi Covid-19 melanda dan banyak orang kesulitan, Slamber turun langsung membagikan masker, makanan, dan minuman kepada masyarakat sekitar — mulai dari pedagang kaki lima, pengendara ojek online, hingga warga yang terdampak. Aksi ini jadi bentuk nyata kepedulian Slamber untuk tetap hadir dan bermanfaat, sekecil apa pun kondisinya.",
+      "stat1": "12 Peserta",
+      "stat2": "Kota Sukabumi"
     }
   ]
 }
