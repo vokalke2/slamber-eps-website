@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SLAMBER.EPS</title>
+<link rel="icon" type="image/jpeg" href="uploads/logo-slamber.jpg">
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {
@@ -69,7 +70,7 @@
   }
   .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:18px clamp(20px,5vw,64px); }
   .logo{ display:flex; align-items:center; gap:10px; font-family:'Space Mono',monospace; font-weight:700; letter-spacing:.02em; font-size:15px; }
-  .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--white); }
+  .logo img{ width:30px; height:30px; border-radius:50%; object-fit:cover; }
   nav.links{ display:flex; gap:32px; }
   nav.links a{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); font-weight:600; position:relative; padding:4px 0; transition:color .25s; }
   nav.links a:hover{ color:var(--white); }
@@ -98,6 +99,10 @@
       linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 60%, #090909 100%);
     border-bottom:1px solid var(--line);
     overflow:hidden;
+  }
+  .hero-logo{
+    position:relative; z-index:2; width:84px; height:84px; border-radius:50%;
+    object-fit:cover; margin-bottom:28px; border:1px solid var(--line);
   }
   .hero h1{
     position:relative; z-index:2;
@@ -238,17 +243,14 @@
 
 <header>
   <div class="nav-inner">
-    <div class="logo"><span class="dot"></span> SLAMBER.EPS</div>
+    <div class="logo"><img src="uploads/logo-slamber.jpg" alt="Logo Slamber.eps"> SLAMBER.EPS</div>
     <nav class="links">
       <a href="#home">Home</a>
-      <a href="#sejarah">Sejarah</a>
-      <a href="#visimisi">Visi &amp; Misi</a>
       <a href="#aksi">Rekap Aksi</a>
       <a href="#donasi">Donasi</a>
-      <a href="#kolaborasi">Kolaborasi</a>
-      <a href="#gabung">Gabung</a>
+      <a href="#gabung">Gabung / Kolaborasi</a>
     </nav>
-    <a href="#gabung" class="cta-btn" style="display:inline-block;">Gabung Bersama Kami</a>
+    <a href="#gabung" class="cta-btn" style="display:inline-block;">Gabung / Kolaborasi</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
   </div>
 </header>
@@ -256,6 +258,7 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="wrap">
+    <img src="uploads/logo-slamber.jpg" alt="Logo Slamber.eps" class="hero-logo fade">
     <h1>BUKAN SEKADAR BERKUMPUL.<br>KAMI MEMILIH UNTUK BERGERAK.</h1>
     <p class="hero-sub">Slamber adalah komunitas yang tumbuh dari kebersamaan, bergerak melalui aksi, dan hadir untuk memberi manfaat bagi lingkungan, sesama, dan diri sendiri.</p>
     <div class="hero-actions">
@@ -265,71 +268,6 @@
     <div class="hero-foot">
       <div>SATUKAN LANGKAH MENUJU BERSAMA — <span>BERSAMA SELAMANYA</span></div>
       <div>#SatukanLangkah #BersamaSelamanya</div>
-    </div>
-  </div>
-</section>
-
-<!-- SEJARAH -->
-<section class="section section-divider" id="sejarah">
-  <div class="wrap">
-    <div class="eyebrow fade">Sejarah</div>
-    <h2 class="fade fade-d1" style="font-size:clamp(28px,4.4vw,48px); margin-top:16px; max-width:16ch;">Dari kebersamaan menjadi gerakan.</h2>
-    <div class="timeline fade fade-d2">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Awal</div>
-        <h3>Terbentuknya Slamber</h3>
-        <p>Bermula dari kebersamaan sekelompok anak muda yang ingin ruang untuk berbagi, membantu sesama, dan bergerak bersama.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Bergerak</div>
-        <h3>Aksi pertama, langkah pertama</h3>
-        <p>Slamber mulai menjalankan berbagai kegiatan dan aksi nyata di lingkungan sekitar.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Bertumbuh</div>
-        <h3>Lebih banyak anggota, lebih banyak cerita</h3>
-        <p>Semakin banyak anggota, kegiatan, dan kolaborasi yang lahir dari semangat yang sama.</p>
-      </div>
-      <div class="tl-item is-key">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Hari Ini</div>
-        <h3>Melanjutkan langkah</h3>
-        <p>Generasi baru bersama anggota lama terus menjaga dan meneruskan Slamber melalui aksi nyata.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Masa Depan</div>
-        <h3>Lebih besar, lebih bermanfaat</h3>
-        <p>Slamber terus berkembang menjadi komunitas yang memberikan dampak lebih luas bagi lingkungan, sesama, dan diri sendiri.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VISI MISI -->
-<section class="section section-divider" id="visimisi">
-  <div class="wrap">
-    <div class="eyebrow fade">Visi &amp; Misi</div>
-    <div class="vm-grid fade fade-d1" style="margin-top:32px;">
-      <div class="vm-card">
-        <div class="eyebrow" style="margin-bottom:16px;">Visi</div>
-        <p>Menjadi komunitas yang membentuk generasi muda yang peduli, bertakwa, bertumbuh, dan aktif memberikan manfaat bagi lingkungan serta sesama.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:16px;">Misi</div>
-        <ol class="misi-list">
-          <li>Membangun budaya kepedulian terhadap lingkungan.</li>
-          <li>Menjalankan kegiatan sosial yang memberikan manfaat nyata.</li>
-          <li>Membentuk anggota yang memiliki akhlak dan nilai spiritual.</li>
-          <li>Mendorong pengembangan diri setiap anggota.</li>
-          <li>Membangun solidaritas dan persaudaraan.</li>
-          <li>Mengajak generasi muda berkontribusi melalui aksi nyata.</li>
-          <li>Membuka ruang kolaborasi dengan masyarakat, organisasi, dan komunitas lain.</li>
-        </ol>
-      </div>
     </div>
   </div>
 </section>
@@ -391,54 +329,32 @@
   </div>
 </section>
 
-<!-- KOLABORASI -->
-<section class="section section-divider" id="kolaborasi">
-  <div class="wrap">
-    <div class="collab-flex fade">
-      <h2>Let's create impact together.</h2>
-      <p style="color:var(--grey); font-size:16px; max-width:44ch; line-height:1.65;">Jika kamu memiliki ide, sumber daya, jaringan, atau semangat yang sama, mari ciptakan sesuatu yang memiliki dampak.</p>
-    </div>
-    <form class="form-panel fade fade-d1" onsubmit="return false;">
-      <div class="eyebrow" style="margin-bottom:4px;">Ajukan Kolaborasi</div>
-      <div class="form-grid">
-        <div class="field"><label for="c-nama">Nama / Organisasi</label><input id="c-nama" type="text" placeholder="Nama kamu atau organisasi"></div>
-        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" placeholder="nama@email.com"></div>
-        <div class="field"><label for="c-wa">Nomor WhatsApp</label><input id="c-wa" type="tel" placeholder="08xx-xxxx-xxxx"></div>
-        <div class="field">
-          <label for="c-jenis">Jenis Kolaborasi</label>
-          <select id="c-jenis">
-            <option>Sponsorship</option>
-            <option>Program Bersama</option>
-            <option>Donasi Korporat</option>
-            <option>Media Partner</option>
-            <option>Lainnya</option>
-          </select>
-        </div>
-        <div class="field full"><label for="c-pesan">Pesan</label><textarea id="c-pesan" rows="4" placeholder="Ceritakan idemu..."></textarea></div>
-      </div>
-      <button class="cta-btn form-submit" type="submit">Ajukan Kolaborasi</button>
-    </form>
-  </div>
-</section>
-
-<!-- GABUNG -->
+<!-- GABUNG / KOLABORASI -->
 <section class="section section-divider" id="gabung">
   <div class="wrap">
-    <div class="eyebrow fade">Volunteer</div>
+    <div class="eyebrow fade">Gabung &amp; Kolaborasi</div>
     <h2 class="fade fade-d1" style="font-size:clamp(28px,5vw,52px); margin-top:16px; max-width:18ch;">Kamu tidak harus menunggu menjadi hebat untuk berbuat baik.</h2>
-    <p class="fade fade-d1" style="color:var(--grey); margin-top:14px; font-size:16px;">Mulai dari hal kecil. Mulai dari lingkunganmu. Mulai dari hari ini.</p>
+    <p class="fade fade-d1" style="color:var(--grey); margin-top:14px; font-size:16px;">Mau gabung jadi volunteer, atau punya ide kolaborasi/kemitraan bareng Slamber — isi satu form ini aja, langsung kekirim ke WhatsApp kami.</p>
 
-    <form class="form-panel fade fade-d2" onsubmit="return false;">
-      <div class="eyebrow" style="margin-bottom:4px;">Gabung Menjadi Anggota</div>
+    <form class="form-panel fade fade-d2" id="gabungForm">
+      <div class="eyebrow" style="margin-bottom:4px;">Gabung / Ajukan Kolaborasi</div>
       <div class="form-grid">
-        <div class="field"><label for="v-nama">Nama</label><input id="v-nama" type="text" placeholder="Nama lengkap" required></div>
+        <div class="field"><label for="v-nama">Nama / Organisasi</label><input id="v-nama" type="text" placeholder="Nama lengkap atau nama organisasi" required></div>
         <div class="field"><label for="v-wa">Nomor WhatsApp</label><input id="v-wa" type="tel" placeholder="08xx-xxxx-xxxx" required></div>
         <div class="field"><label for="v-email">Email</label><input id="v-email" type="email" placeholder="nama@email.com" required></div>
         <div class="field"><label for="v-domisili">Domisili</label><input id="v-domisili" type="text" placeholder="Kota / kecamatan"></div>
         <div class="field"><label for="v-ig">Instagram</label><input id="v-ig" type="text" placeholder="@username"></div>
-        <div class="field full"><label for="v-alasan">Alasan Ingin Bergabung</label><textarea id="v-alasan" rows="4" placeholder="Ceritakan alasanmu..."></textarea></div>
+        <div class="field">
+          <label for="v-jenis">Tujuan</label>
+          <select id="v-jenis">
+            <option value="Gabung jadi Volunteer/Anggota">Gabung jadi Volunteer / Anggota</option>
+            <option value="Kolaborasi/Kemitraan Organisasi">Kolaborasi / Kemitraan Organisasi</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+        <div class="field full"><label for="v-alasan">Alasan / Pesan</label><textarea id="v-alasan" rows="4" placeholder="Ceritakan alasanmu ingin gabung, atau ide kolaborasimu..."></textarea></div>
       </div>
-      <button class="cta-btn form-submit" type="submit">Gabung Menjadi Anggota</button>
+      <button class="cta-btn form-submit" type="submit">Kirim via WhatsApp</button>
     </form>
   </div>
 </section>
@@ -448,17 +364,14 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo"><span class="dot"></span> SLAMBER.EPS</div>
+        <div class="logo"><img src="uploads/logo-slamber.jpg" alt="Logo Slamber.eps"> SLAMBER.EPS</div>
         <p>Bertumbuh bersama. Bergerak bersama. Memberi manfaat bersama.</p>
       </div>
       <div class="footer-col">
         <h4>Navigasi</h4>
-        <a href="#sejarah">Sejarah</a>
-        <a href="#visimisi">Visi &amp; Misi</a>
         <a href="#aksi">Rekap Aksi</a>
         <a href="#donasi">Donasi</a>
-        <a href="#kolaborasi">Kolaborasi</a>
-        <a href="#gabung">Gabung</a>
+        <a href="#gabung">Gabung / Kolaborasi</a>
       </div>
       <div class="footer-col">
         <h4>Terhubung</h4>
@@ -502,6 +415,7 @@
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{ if(window.innerWidth<=920){ navLinks.style.display='none'; } }));
 
   // ---- Dynamic content from content/site.json (edited via /admin panel) ----
+  let SITE_DATA = null;
   const CATEGORY_LABEL = {
     environment:'Environment', social:'Social', education:'Education',
     spiritual:'Spiritual', community:'Community'
@@ -559,6 +473,7 @@
   fetch('content/site.json')
     .then(res => res.json())
     .then(data => {
+      SITE_DATA = data;
       setLink('linkInstagram', data.social && data.social.instagram);
       setLink('linkTiktok', data.social && data.social.tiktok);
       setLink('linkYoutube', data.social && data.social.youtube);
@@ -570,6 +485,49 @@
       document.getElementById('aksiGrid').innerHTML =
         '<p style="color:var(--grey); font-size:14px;">Konten belum bisa dimuat. Pastikan situs ini dibuka lewat hosting (bukan dibuka langsung dari file), lalu cek kembali.</p>';
     });
+
+  // ---- Route "Gabung" & "Kolaborasi" forms straight to WhatsApp ----
+  function extractWaNumber(link){
+    if(!link) return null;
+    const match = link.match(/wa\.me\/(\d+)/) || link.match(/(\d{8,15})/);
+    return match ? match[1] : null;
+  }
+
+  function openWhatsapp(message){
+    const number =
+      extractWaNumber(SITE_DATA && SITE_DATA.social && SITE_DATA.social.whatsapp) ||
+      extractWaNumber(SITE_DATA && SITE_DATA.donasi && SITE_DATA.donasi.whatsapp);
+    const base = number ? `https://wa.me/${number}` : `https://wa.me/`;
+    window.open(`${base}?text=${encodeURIComponent(message)}`, '_blank');
+  }
+
+  const gabungForm = document.getElementById('gabungForm');
+  if(gabungForm){
+    gabungForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const nama = document.getElementById('v-nama').value.trim();
+      const wa = document.getElementById('v-wa').value.trim();
+      const email = document.getElementById('v-email').value.trim();
+      const domisili = document.getElementById('v-domisili').value.trim();
+      const ig = document.getElementById('v-ig').value.trim();
+      const jenis = document.getElementById('v-jenis').value;
+      const alasan = document.getElementById('v-alasan').value.trim();
+      if(!nama || !wa || !email){
+        alert('Mohon isi Nama, Nomor WhatsApp, dan Email terlebih dahulu.');
+        return;
+      }
+      const msg =
+        `Halo Slamber.eps, saya ingin:\n\n` +
+        `Tujuan: ${jenis}\n` +
+        `Nama/Organisasi: ${nama}\n` +
+        `No. WhatsApp: ${wa}\n` +
+        `Email: ${email}\n` +
+        `Domisili: ${domisili || '-'}\n` +
+        `Instagram: ${ig || '-'}\n` +
+        `Alasan/Pesan: ${alasan || '-'}`;
+      openWhatsapp(msg);
+    });
+  }
 </script>
 </body>
 </html>
