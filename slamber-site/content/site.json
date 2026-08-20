@@ -9,7 +9,7 @@
     "account_name": "Muhamad Rizki Akbar",
     "bank_name": "BCA",
     "account_number": "0381032395",
-    "qris_image": "",
+    "qris_image": "/uploads/9cbd78b4-1bba-41e4-a9f1-da877069dd72.jpeg",
     "whatsapp": "https://wa.me/6285872074135"
   },
   "aksi": [
@@ -18,20 +18,32 @@
       "date": "2020",
       "gallery": [
         {
-          "photo": "/uploads/IMG-20200408-WA0032.jpg"
+          "photo": "/uploads/IMG-20200408-WA0016.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0011.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0014.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0018.jpg"
         },
         {
           "photo": "/uploads/IMG-20200408-WA0027.jpg"
         },
         {
-          "photo": "/uploads/IMG-20200408-WA0041.jpg"
+          "photo": "/uploads/IMG-20200408-WA0031.jpg"
         },
         {
-          "photo": "/uploads/IMG-20200408-WA0016.jpg"
+          "photo": "/uploads/IMG-20200408-WA0040.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0057.jpg"
         }
       ],
       "location": "Kota Sukabumi",
-      "title": "Slamber Peduli — Berbagi di Tengah Pandemi",
+      "title": "Slambereps Peduli — Berbagi di Tengah Pandemi",
       "image": "/uploads/IMG-20200408-WA0057.jpg",
       "categories": [
         "education",
@@ -43,8 +55,8 @@
       "stat2": "Kota Sukabumi"
     },
     {
-      "title": "Slamber Berbagi Ceria — Makan dan Main Bersama Adik-Adik Panti Asuhan Umi adah",
-      "date": "",
+      "title": "Slambereps Berbagi Ceria — Makan dan Main Bersama Adik-Adik Panti Asuhan Umi adah",
+      "date": "2020",
       "location": "Kota Sukabumi",
       "description": "Slamber mengajak adik-adik yatim untuk makan bersama dan bermain penuh keceriaan. Bukan cuma soal berbagi makanan, tapi juga soal hadir, mendengar, dan menghadirkan tawa di tengah keseharian mereka — karena kebahagiaan sekecil apa pun berarti besar buat yang menerimanya.",
       "categories": [
@@ -68,7 +80,7 @@
       ]
     },
     {
-      "title": "Slambereps Peduli: Uluran Tangan untuk Sesama",
+      "title": "Slambereps Peduli - Uluran Tangan untuk Sesama",
       "location": "Indonesia",
       "categories": [
         "environment",
@@ -97,7 +109,8 @@
         {
           "photo": "/uploads/IMG-20220220-WA0051.jpg"
         }
-      ]
+      ],
+      "date": "2020"
     }
   ],
   "logo": "/uploads/img_20200824_135018_400.jpg"
