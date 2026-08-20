@@ -111,7 +111,33 @@
         }
       ],
       "date": "2020"
-    }
+    },
+    {
+      "title": "Slambereps - Meningkatkan iman, islam, dan taqwa",
+      "date": "2020",
+      "location": "Sukabumi ",
+      "categories": [
+        "education",
+        "spiritual"
+      ],
+      "description": "Tidak hanya berkumpul biasa, tidak hanya membangun hubungan baik sesama manusia, tetapi di slambereps juga kita membangun hubungan baik terhadap Tuhan Yang Maha Esa.",
+      "image": "/uploads/IMG-20210326-WA0028.jpg",
+      "gallery": [
+        {
+          "photo": "/uploads/IMG-20210402-WA0027.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20210326-WA0039.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20210326-WA0023.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20210402-WA0039.jpg"
+        }
+      ]
+    },
+    {}
   ],
   "logo": "/uploads/img_20200824_135018_400.jpg"
 }
