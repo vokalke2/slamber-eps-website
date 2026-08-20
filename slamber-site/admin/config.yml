@@ -18,6 +18,7 @@ collections:
         label: "Sosial Media & Donasi"
         file: "slamber-site/content/site.json"
         fields:
+          - { label: "Logo Komunitas", name: "logo", widget: "image", required: false, hint: "Ganti logo yang tampil di navbar, hero, dan footer." }
           - label: "Sosial Media"
             name: "social"
             widget: "object"
@@ -55,7 +56,16 @@ collections:
                   - { label: "Spiritual", value: "spiritual" }
                   - { label: "Community", value: "community" }
               - { label: "Deskripsi Singkat", name: "description", widget: "text" }
-              - { label: "Foto Kegiatan", name: "image", widget: "image", required: false }
+              - { label: "Foto Utama (cover)", name: "image", widget: "image", required: false, hint: "Foto ini yang muncul di kartu Rekap Aksi." }
+              - label: "Galeri Foto Tambahan (opsional)"
+                name: "gallery"
+                widget: "list"
+                required: false
+                label_singular: "Foto"
+                summary: "{{fields.caption}}"
+                fields:
+                  - { label: "Foto", name: "photo", widget: "image" }
+                  - { label: "Keterangan Foto (opsional)", name: "caption", widget: "string", required: false }
               - { label: "Link Video (opsional)", name: "video_url", widget: "string", required: false, hint: "Link YouTube/Instagram/TikTok video kegiatan ini" }
               - { label: "Angka/Info 1", name: "stat1", widget: "string", required: false, hint: "Contoh: 32 Peserta" }
               - { label: "Angka/Info 2", name: "stat2", widget: "string", required: false, hint: "Contoh: Ruang Publik Tertata" }
