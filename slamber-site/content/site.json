@@ -18,7 +18,7 @@
       "date": "2020",
       "location": "Kota Sukabumi",
       "title": "Slamber Peduli — Berbagi di Tengah Pandemi",
-      "image": "",
+      "image": "/uploads/IMG-20200408-WA0057.jpg",
       "categories": [
         "education",
         "social",
@@ -27,6 +27,17 @@
       "description": "Saat pandemi Covid-19 melanda dan banyak orang kesulitan, Slamber turun langsung membagikan masker, makanan, dan minuman kepada masyarakat sekitar — mulai dari pedagang kaki lima, pengendara ojek online, hingga warga yang terdampak. Aksi ini jadi bentuk nyata kepedulian Slamber untuk tetap hadir dan bermanfaat, sekecil apa pun kondisinya.",
       "stat1": "12 Peserta",
       "stat2": "Kota Sukabumi"
+    },
+    {
+      "title": "Slamber Peduli — Berbagi di Tengah Pandemi",
+      "date": "2020",
+      "location": "Kota Sukabumi",
+      "description": "Saat pandemi Covid-19 melanda dan banyak orang kesulitan, Slamber turun langsung membagikan masker, makanan, dan minuman kepada masyarakat sekitar — mulai dari pedagang kaki lima, pengendara ojek online, hingga warga yang terdampak. Aksi ini jadi bentuk nyata kepedulian Slamber untuk tetap hadir dan bermanfaat, sekecil apa pun kondisinya.",
+      "categories": [
+        "social",
+        "community"
+      ],
+      "image": "/uploads/IMG-20200408-WA0032.jpg"
     }
   ]
 }
