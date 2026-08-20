@@ -66,6 +66,38 @@
           "photo": "/uploads/IMG_20210829_062709_058.jpg"
         }
       ]
+    },
+    {
+      "title": "Slambereps Peduli: Uluran Tangan untuk Sesama",
+      "location": "Indonesia",
+      "categories": [
+        "environment",
+        "social",
+        "community"
+      ],
+      "description": "Slambereps turun tangan langsung membantu korban bencana alam melalui aksi solidaritas, penggalangan dana, dan distribusi bantuan logistik ke daerah terdampak.",
+      "image": "/uploads/IMG-20200924-WA0013.jpg",
+      "gallery": [
+        {
+          "photo": "/uploads/IMG-20220406-WA0061.jpg",
+          "caption": "Di berikannya Piagam Penghargaan dari BNPB"
+        },
+        {
+          "photo": "/uploads/IMG-20220219-WA0041.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20220218-WA0015.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20220219-WA0050.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20220219-WA0052.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20220220-WA0051.jpg"
+        }
+      ]
     }
   ],
   "logo": "/uploads/img_20200824_135018_400.jpg"
