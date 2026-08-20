@@ -43,15 +43,29 @@
       "stat2": "Kota Sukabumi"
     },
     {
-      "title": "Slamber Peduli — Berbagi di Tengah Pandemi",
-      "date": "2020",
+      "title": "Slamber Berbagi Ceria — Makan dan Main Bersama Adik-Adik Panti Asuhan Umi adah",
+      "date": "",
       "location": "Kota Sukabumi",
-      "description": "Saat pandemi Covid-19 melanda dan banyak orang kesulitan, Slamber turun langsung membagikan masker, makanan, dan minuman kepada masyarakat sekitar — mulai dari pedagang kaki lima, pengendara ojek online, hingga warga yang terdampak. Aksi ini jadi bentuk nyata kepedulian Slamber untuk tetap hadir dan bermanfaat, sekecil apa pun kondisinya.",
+      "description": "Slamber mengajak adik-adik yatim untuk makan bersama dan bermain penuh keceriaan. Bukan cuma soal berbagi makanan, tapi juga soal hadir, mendengar, dan menghadirkan tawa di tengah keseharian mereka — karena kebahagiaan sekecil apa pun berarti besar buat yang menerimanya.",
       "categories": [
         "social",
-        "community"
+        "environment"
       ],
-      "image": "/uploads/IMG-20200408-WA0032.jpg"
+      "image": "/uploads/IMG_20210829_062708_949.jpg",
+      "gallery": [
+        {
+          "photo": "/uploads/IMG_20210829_062709_058.jpg"
+        },
+        {
+          "photo": "/uploads/IMG_20210828_132957_956_transcpr.jpg"
+        },
+        {
+          "photo": "/uploads/IMG_20210829_063429_936.jpg"
+        },
+        {
+          "photo": "/uploads/IMG_20210829_062709_058.jpg"
+        }
+      ]
     }
   ],
   "logo": "/uploads/img_20200824_135018_400.jpg"
