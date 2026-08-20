@@ -16,6 +16,20 @@
     {
       "video_url": "",
       "date": "2020",
+      "gallery": [
+        {
+          "photo": "/uploads/IMG-20200408-WA0032.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0027.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0041.jpg"
+        },
+        {
+          "photo": "/uploads/IMG-20200408-WA0016.jpg"
+        }
+      ],
       "location": "Kota Sukabumi",
       "title": "Slamber Peduli — Berbagi di Tengah Pandemi",
       "image": "/uploads/IMG-20200408-WA0057.jpg",
@@ -39,5 +53,6 @@
       ],
       "image": "/uploads/IMG-20200408-WA0032.jpg"
     }
-  ]
+  ],
+  "logo": "/uploads/img_20200824_135018_400.jpg"
 }
